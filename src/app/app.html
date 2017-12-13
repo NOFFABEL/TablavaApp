@@ -1,0 +1,44 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content>
+
+    <ion-item-divider>
+      <ion-avatar class="avatar" item-start>
+        <img src="../../resources/icon.png"/>
+      </ion-avatar>
+      <h4>NOFFABEL</h4>
+      <p>noffabel12@gmail.com</p>
+    </ion-item-divider>
+
+    <ion-item-divider>
+      <ion-title> All your Washer</ion-title>
+      <ol>
+        <li>
+          <span>M1</span>
+          <p>date M2</p>
+        </li>
+        <li>
+          <span>M2</span>
+          <p>date M2</p>
+        </li>
+      </ol>
+    </ion-item-divider>
+
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" [class.activePage]="checkActivePage(p)" (click)="openPage(p)">
+        <ion-icon [name]="p.icon" item-start></ion-icon><span>{{p.title}}</span>
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
